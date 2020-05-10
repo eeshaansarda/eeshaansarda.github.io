@@ -1,0 +1,14 @@
+body{
+	font-family: sans-serif;
+    background-color: lightgray;
+    margin: 0;
+}
+/*A good combination can be - grey and vibrant green*/
+
+#topbar{
+    background-color: darkgray;
+    width: 100%;
+    height: 2em;
+}
+
+https://fireship.io/snippets/light-dark-mode-theme-css/
