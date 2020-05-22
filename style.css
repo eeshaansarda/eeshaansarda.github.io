@@ -34,12 +34,26 @@ ul{
 }
 
 .navbar{
-    position: absolute;
-    top:0;
+    position: fixed;
     display: flex;
     justify-content: space-between;
     padding: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     z-index: 3;
+    width: 100%;
+}
+
+.navbar-left{
+    flex: 3;
+}
+
+.navbar-right{
+    flex: 1;
+}
+
+.navbar-scroll{
+    background: #181818;
 }
 
 .navbar-right button{
@@ -199,7 +213,7 @@ ul{
 }
 
 .project-name{
-    background: #181818;
+    background: #131414;
     text-align: center;
     display: table;
     grid: 1fr;
