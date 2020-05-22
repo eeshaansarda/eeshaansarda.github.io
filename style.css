@@ -190,16 +190,19 @@ ul{
     display: grid;
     grid-template-rows: 2fr 1fr;
     grid-row-gap: 3%;
+    position: relative;
 }
 
 .project-container img{
     width: 100%;
+    grid: 2fr;
 }
 
 .project-name{
     background: #181818;
     text-align: center;
     display: table;
+    grid: 1fr;
 }
 
 .project-name h3{
@@ -209,6 +212,19 @@ ul{
 
 strong{
     color: #C49B66;
+}
+
+.tags{
+    position: absolute;
+    right: 10%;
+    bottom: 26%;
+    display: flex;
+}
+
+.tag{
+    background: #C49B66;
+    padding: 8px 20px;
+    font-size: 13px;
 }
 
 /*https://stackoverflow.com/questions/2939914/how-do-i-vertically-align-text-in-a-div*/
