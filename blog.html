@@ -1,0 +1,76 @@
+<html>
+
+<head> 
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(window).scroll(function(){
+            if($(document).scrollTop() > 50){
+                $(".navbar").addClass("navbar-scroll");
+            }
+            else{
+                $(".navbar").removeClass("navbar-scroll");
+            }
+        });
+    });
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<title>Blog</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body style="margin:0;">
+
+    <div class="cover3" data-overlay-dark="8">
+        <div class="navbar">
+            <div class="navbar-left">
+                <img src="images/logo.png" width=8%>
+            </div>
+            <div class="navbar-right">
+                <a href="index.html"><button>Home</button></a>
+                <a href="index.html#about"><button>About</button></a>
+                <a href="projects.html"><button>Projects</button></a>
+                <button class="active-button">Blog</button>
+            </div>
+        </div>
+        <div class="cover-text">
+            <h1>Blog</h1>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="blogpost-container">
+            <div class="blog-tags">
+                <div class="tag">Introduction</div>
+            </div>
+            <div class="blog-title"><a href="blogposts/introduction.html"><h3>Introduction</h3></a></div>
+        </div>
+        <br>
+        <br>
+        <div class="blogpost-container-imgleft">
+            <img src="images/cover2.jpg">
+            <div class="blog-tags">
+                <div class="tag">NeoVim</div>
+            </div>
+            <div class="blog-title"><a href="blogposts/my-neovim-config.html"><h3>My NeoVim Config</h3></a></div>
+        </div>
+        <br>
+        <br>
+        <div class="blogpost-container-imgright">
+            <div class="blog-title"><a href="blogposts/my-neovim-config.html"><h3>Something</h3></a></div>
+            <div class="blog-tags">
+                <div class="tag">Introduction</div>
+            </div>
+            <img src="images/cover2.jpg">
+        </div>
+    </div>
+
+</body>
+</html>

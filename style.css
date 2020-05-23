@@ -33,6 +33,14 @@ ul{
     z-index: 1;
 }
 
+.cover3{
+    background: url("images/cover3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
 .navbar{
     position: fixed;
     display: flex;
@@ -241,6 +249,81 @@ strong{
     font-size: 13px;
 }
 
+/*Blog*/
+
+.blogpost-container-imgleft{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    height: 150px;
+}
+
+.blogpost-container-imgright{
+    position: relative;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    height: 150px;
+}
+
+.blogpost-container{
+    position: relative;
+    display: grid;
+    grid-template-columns: 3fr;
+    height: 150px;
+}
+
+.blogpost-container-imgleft img{
+    width: 280px;
+    height: 150px;
+    grid: 1fr;
+}
+
+.blogpost-container-imgright img{
+    width: 280px;
+    height: 150px;
+    grid: 1fr;
+}
+
+.blog-title{
+    grid: 3fr;
+    background: #181818;
+    text-align: center;
+    display: table;
+    height: 100%;
+}
+
+.blogpost-container a{
+    color: white;
+}
+
+.blogpost-container-imgleft a{
+    color: white;
+}
+
+.blogpost-container-imgright a{
+    color: white;
+}
+
+.blog-title a{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.blog-tags{
+    position: absolute;
+    right: 5%;
+    bottom: 15%;
+    display: flex;
+}
+
+.blogpost-container-imgright .blog-tags{
+    right: 30%;
+    bottom: 15%;
+}
+
+
+
 /*https://stackoverflow.com/questions/2939914/how-do-i-vertically-align-text-in-a-div*/
 /*https://fireship.io/snippets/light-dark-mode-theme-css/*/
 /*http://www.innovationplans.com/idesign/personala/dark.html#0*/
+/*https://material.io/resources/icons/?icon=personal_video&style=baseline*/
