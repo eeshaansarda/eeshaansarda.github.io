@@ -217,7 +217,10 @@ ul{
 
 .project-container img{
     width: 100%;
+    height: 200px;
     grid: 2fr;
+    object-fit: cover;
+    background-repeat: no-repeat;
 }
 
 .project-name{
@@ -227,7 +230,8 @@ ul{
     grid: 1fr;
 }
 
-.project-name h3{
+.project-name a{
+    color: white;
     display: table-cell;
     vertical-align: middle;
 }
