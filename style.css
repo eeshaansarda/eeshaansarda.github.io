@@ -26,7 +26,7 @@ ul{
 }
 
 .cover2{
-    background: url("images/cover2.jpg");
+    background: url('./images/cover2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -34,7 +34,7 @@ ul{
 }
 
 .cover3{
-    background: url("images/cover3.jpg");
+    background: url("./images/cover3.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -45,19 +45,18 @@ ul{
     position: fixed;
     display: flex;
     justify-content: space-between;
-    padding: 30px;
     padding-top: 20px;
     padding-bottom: 20px;
     z-index: 3;
     width: 100%;
 }
-
 .navbar-left{
-    flex: 3;
+    padding-left: 20px;
 }
 
 .navbar-right{
-    flex: 1;
+    display: flex;
+    padding-right: 20px;
 }
 
 .navbar-scroll{
@@ -147,9 +146,20 @@ ul{
     background-image: url("./images/cover2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center center;
     background-attachment: fixed;
     padding: 15px 0;
     display: flex;
+}
+
+@media (max-width: 610px){
+    .about-skills{
+        flex-direction: column;    
+    }
+
+    .about-column{
+        text-align: center;
+    }
 }
 
 [data-overlay-dark]{
@@ -208,10 +218,22 @@ ul{
     grid-column-gap: 3%;
 }
 
+@media (max-width: 1030px){
+    .projects-container{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 614px){
+    .projects-container{
+        grid-template-columns: 1fr;
+    }
+}
+
 .project-container{
     display: grid;
     grid-template-rows: 2fr 1fr;
-    grid-row-gap: 3%;
+    grid-row-gap: 7px;
     position: relative;
 }
 
@@ -255,41 +277,44 @@ strong{
 
 /*Blog*/
 
-.blogpost-container-imgleft{
+.blogposts-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.blogpost-container, .blogpost-container-imgleft, .blogpost-container-imgright{
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 3fr;
     height: 150px;
+    margin: 10px;
+}
+
+.blogpost-container-imgleft{
+    grid-template-columns: 1fr 3fr;
 }
 
 .blogpost-container-imgright{
-    position: relative;
-    display: grid;
     grid-template-columns: 3fr 1fr;
-    height: 150px;
 }
 
 .blogpost-container{
-    position: relative;
-    display: grid;
-    grid-template-columns: 3fr;
-    height: 150px;
+    grid-template-columns: 1fr;
 }
 
 .blogpost-container-imgleft img{
-    width: 280px;
-    height: 150px;
-    grid: 1fr;
+    width: 21vw;
+    height: 100%;
+    object-fit: cover;
 }
 
 .blogpost-container-imgright img{
-    width: 280px;
-    height: 150px;
-    grid: 1fr;
+    width: 21vw;
+    height: 100%;
+    object-fit: cover;
 }
 
 .blog-title{
-    grid: 3fr;
+    font-size: 1.3vw;
     background: #181818;
     text-align: center;
     display: table;
@@ -325,9 +350,30 @@ strong{
     bottom: 15%;
 }
 
+@media (max-width: 767px){
+    .blog-title{
+        font-size: 0.7em;
+    }
 
+    .blogpost-container-imgleft img{
+        display: none;
+    }
 
-/*https://stackoverflow.com/questions/2939914/how-do-i-vertically-align-text-in-a-div*/
-/*https://fireship.io/snippets/light-dark-mode-theme-css/*/
-/*http://www.innovationplans.com/idesign/personala/dark.html#0*/
-/*https://material.io/resources/icons/?icon=personal_video&style=baseline*/
+    .blogpost-container-imgright img{
+        display: none;
+    }
+
+    .blogpost-container-imgleft{
+        grid-template-columns: 1fr;
+    }
+
+    .blogpost-container-imgright{
+        grid-template-columns: 1fr;
+    }
+
+    .blogpost-container-imgright .blog-tags{
+        right: 5%;
+        bottom: 15%;
+    }
+
+}
