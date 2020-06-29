@@ -17,7 +17,16 @@
                 $(".navbar").removeClass("navbar-scroll");
             }
         });
+    fetch("./blogposts/introduction.html").then((response) => response.text())
+        .then((text) => {
+            const otherDoc = $(document).implementation.createHTMLDocument("blog").documentElement;
+            otherDoc.innerHTML = text;
+            console.log("Hellp");
+            $(document).querySelector(".latest-blog p").textContent = otherDoc.querySelector(".content p").textContent;
+        });
     });
+
+
 </script>
 
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
@@ -89,7 +98,8 @@
 
     <div class="latest-blog">
         <div class="content">
-        <h2 class="title">Latest Blog</h2>
+            <h2 class="title">Latest Blog</h2>
+            <p></p>
         </div>
     </div>
 
