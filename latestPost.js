@@ -7,5 +7,5 @@ fetch("./blog.html").
         otherDoc.innerHTML = text;
 
         const blogposts = otherDoc.getElementsByClassName("blogpost");
-        latestBlog.innerHTML = blogposts[blogposts.length - 1].innerHTML;
+        latestBlog.appendChild( blogposts[blogposts.length - 1] );
     });
