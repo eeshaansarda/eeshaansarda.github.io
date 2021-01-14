@@ -6,5 +6,6 @@ fetch("./blog.html").
         const otherDoc = document.implementation.createHTMLDocument("blog").documentElement;
         otherDoc.innerHTML = text;
 
-        latestBlog.innerHTML = otherDoc.querySelector(".blogpost").innerHTML;
+        const blogposts = otherDoc.getElementsByClassName(".blogpost");
+        latestBlog.innerHTML = blogposts[blogposts.length - 1].innerHTML;
     });
