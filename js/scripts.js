@@ -29,8 +29,20 @@ function randomMovement(star) {
     star.dataset.dy = newDeltaY;
 
     // Update position
-    const newX = parseFloat(star.style.left) + newDeltaX;
-    const newY = parseFloat(star.style.top) + newDeltaY;
+    let newX = parseFloat(star.style.left) + newDeltaX;
+    let newY = parseFloat(star.style.top) + newDeltaY;
+
+    // Reverse direction at edges
+    if (newX < 0 || newX > 100) {
+        star.dataset.dx = -newDeltaX; // Reverse x direction
+        newX = parseFloat(star.style.left) - newDeltaX; // Update position with reversed direction
+    }
+
+    if (newY < 0 || newY > 100) {
+        star.dataset.dy = -newDeltaY; // Reverse y direction
+        newY = parseFloat(star.style.top) - newDeltaY; // Update position with reversed direction
+    }
+
     star.style.left = `${newX}%`;
     star.style.top = `${newY}%`;
 }
