@@ -1,0 +1,96 @@
+:root {
+    Black: #1a1a1a
+    Blue : #3aa8ff
+    Gray : #777777
+    LGray: #f9f9f9
+    White: #ffffff
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.brand {
+    font-size: 3.75rem;
+    font-family: 'Spectral', serif;
+    color: #1a1a1a;
+    text-decoration: none;
+    animation: fadin 3s;
+}
+
+.brand span {
+    color: #3aa8ff;
+}
+
+.nav-links a {
+    color: #777777;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.nav-links a:hover {
+    color: #3aa8ff;
+}
+
+.gray {
+    color: #777777;
+}
+
+.m4 {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    animation: fadin 5s;
+}
+
+.starry-bg {
+}
+
+.star {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #3aa8ff;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle 5s infinite;
+}
+
+.star {
+    transition: left 1s linear, top 1s linear;
+}
+
+@keyframes fadin {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.2;
+    }
+}
