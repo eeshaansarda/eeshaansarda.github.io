@@ -1,52 +1,78 @@
 // script.js
-const starryBg = document.querySelector('.starry-bg');
+const canvas = document.getElementById('starryBg');
+const ctx = canvas.getContext('2d');
 const numStars = 50; // Adjust the number of stars here
 const stars = [];
-const maxDirectionChange = 0.7; // Maximum change in direction (40%)
+const maxDirectionChange = 0.01; // Maximum change in direction % of change
+const speedFactor = 0.1; // Adjust this to control the speed of movement
 
-for (let i = 0; i < numStars; i++) {
-    const star = document.createElement('div');
-    star.className = 'star';
-    star.style.left = `${Math.random() * 100}%`;
-    star.style.top = `${Math.random() * 100}%`;
-    star.style.animationDuration = `${Math.random() * 5 + 2}s`; // Randomize animation duration
-    star.dataset.dx = (Math.random() - 0.5) * 2; // Initial direction x
-    star.dataset.dy = (Math.random() - 0.5) * 2; // Initial direction y
-    starryBg.appendChild(star);
-    stars.push(star);
+function getRandomFloat(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+function initStars() {
+    for (let i = 0; i < numStars; i++) {
+        const star = {
+            x: getRandomFloat(0, canvas.width),
+            y: getRandomFloat(0, canvas.height),
+            dx: getRandomFloat(-1, 1),
+            dy: getRandomFloat(-1, 1)
+        };
+        stars.push(star);
+    }
 }
 
 function randomMovement(star) {
-    let deltaX = parseFloat(star.dataset.dx);
-    let deltaY = parseFloat(star.dataset.dy);
+    const newDeltaX = star.dx + getRandomFloat(-1, 1) * maxDirectionChange;
+    const newDeltaY = star.dy + getRandomFloat(-1, 1) * maxDirectionChange;
 
-    // Generate new direction with limited change
-    const newDeltaX = deltaX + (Math.random() - 0.5) * 2 * maxDirectionChange;
-    const newDeltaY = deltaY + (Math.random() - 0.5) * 2 * maxDirectionChange;
+    // Normalize the direction vector to maintain constant speed
+    const magnitude = Math.sqrt(newDeltaX * newDeltaX + newDeltaY * newDeltaY);
+    star.dx = (newDeltaX / magnitude) || 0; // Avoid division by zero
+    star.dy = (newDeltaY / magnitude) || 0;
 
-    // Update direction
-    star.dataset.dx = newDeltaX;
-    star.dataset.dy = newDeltaY;
-
-    // Update position
-    let newX = parseFloat(star.style.left) + newDeltaX;
-    let newY = parseFloat(star.style.top) + newDeltaY;
+    let newX = star.x + star.dx * speedFactor;
+    let newY = star.y + star.dy * speedFactor;
 
     // Reverse direction at edges
-    if (newX < 0 || newX > 100) {
-        star.dataset.dx = -newDeltaX; // Reverse x direction
-        newX = parseFloat(star.style.left) - newDeltaX; // Update position with reversed direction
+    if (newX < 0 || newX > canvas.width) {
+        star.dx = -star.dx;
+        newX = star.x + star.dx * speedFactor;
     }
 
-    if (newY < 0 || newY > 100) {
-        star.dataset.dy = -newDeltaY; // Reverse y direction
-        newY = parseFloat(star.style.top) - newDeltaY; // Update position with reversed direction
+    if (newY < 0 || newY > canvas.height) {
+        star.dy = -star.dy;
+        newY = star.y + star.dy * speedFactor;
     }
 
-    star.style.left = `${newX}%`;
-    star.style.top = `${newY}%`;
+    star.x = newX;
+    star.y = newY;
 }
 
-setInterval(() => {
-    stars.forEach(star => randomMovement(star));
-}, 1000); // Adjust the interval to match the transition duration
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    stars.forEach(star => {
+        randomMovement(star);
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, 1.5, 0, Math.PI * 2);
+        ctx.fillStyle = '#3aa8ff';
+        ctx.fill();
+    });
+
+    requestAnimationFrame(draw);
+}
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+resizeCanvas(); // Set initial canvas size
+initStars();
+draw();
+
+window.addEventListener('resize', () => {
+    resizeCanvas();
+    // Optionally, you can reposition or recreate stars here if needed
+});
