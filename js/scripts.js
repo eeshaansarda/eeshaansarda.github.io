@@ -74,5 +74,7 @@ draw();
 
 window.addEventListener('resize', () => {
     resizeCanvas();
-    // Optionally, you can reposition or recreate stars here if needed
+    stars.length = 0; // Clear existing stars
+    initStars(); // Reinitialize stars
+    draw(); // Redraw canvas
 });
