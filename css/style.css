@@ -1,8 +1,8 @@
 :root {
     --black: #1a1a1a;
-    --blue : #3aa8ff;
-    --gray : #777777;
-    --lGray: #f9f9f9;
+    --blue: #3aa8ff;
+    --gray: #777777;
+    --light-gray: #f9f9f9;
     --white: #ffffff;
 }
 
@@ -22,76 +22,77 @@ body {
 
 canvas {
     display: block;
-    background: #f9f9f9;
+    background: var(--light-gray);
 }
 
-.absolute {
+.fullscreen {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
 }
-.z-10 {
+
+.background-layer {
     z-index: -10;
 }
 
-.container {
+.viewport-container {
     height: 100vh;
     width: 100vw;
-    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.navbar {
+.top-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
 }
 
-.brand {
+.page-title {
     font-size: 3.75rem;
     font-family: 'Spectral', serif;
     color: var(--black);
     text-decoration: none;
-    animation: fadin 3s;
+    animation: fade-in 3s;
 }
 
-.brand span {
+.page-title span {
     color: var(--blue);
 }
 
 @media screen and (max-width: 600px) {
-    .brand {
+    .page-title {
         font-size: 2.5rem; /* Adjust font size for smaller screens */
     }
 }
 
-.nav-links a {
+.link-list a {
     color: var(--gray);
     text-decoration: none;
     margin-left: 20px; /* Default for all */
 }
-.nav-links a:first-child {
+
+.link-list a:first-child {
     margin-left: 0; /* Override for the first child */
 }
 
-.nav-links a:hover {
+.link-list a:hover {
     color: var(--blue);
 }
 
-.gray {
+.text-gray {
     color: var(--gray);
 }
 
-.m4 {
+.spacing-medium {
     margin-top: 4rem;
     margin-bottom: 4rem;
-    animation: fadin 5s;
+    animation: fade-in 5s;
 }
 
 .star {
@@ -105,7 +106,7 @@ canvas {
     transition: left 1s linear, top 1s linear;
 }
 
-@keyframes fadin {
+@keyframes fade-in {
     0% {
         opacity: 0;
     }
@@ -113,6 +114,7 @@ canvas {
         opacity: 1;
     }
 }
+
 @keyframes twinkle {
     0%, 100% {
         opacity: 0.8;
