@@ -1,9 +1,9 @@
 :root {
-    Black: #1a1a1a
-    Blue : #3aa8ff
-    Gray : #777777
-    LGray: #f9f9f9
-    White: #ffffff
+    --black: #1a1a1a;
+    --blue : #3aa8ff;
+    --gray : #777777;
+    --lGray: #f9f9f9;
+    --white: #ffffff;
 }
 
 * {
@@ -29,8 +29,8 @@ canvas {
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 100%;
+    right: 0;
+    bottom: 0;
 }
 .z-10 {
     z-index: -10;
@@ -56,13 +56,13 @@ canvas {
 .brand {
     font-size: 3.75rem;
     font-family: 'Spectral', serif;
-    color: #1a1a1a;
+    color: var(--black);
     text-decoration: none;
     animation: fadin 3s;
 }
 
 .brand span {
-    color: #3aa8ff;
+    color: var(--blue);
 }
 
 @media screen and (max-width: 600px) {
@@ -72,20 +72,20 @@ canvas {
 }
 
 .nav-links a {
-    color: #777777;
+    color: var(--gray);
     text-decoration: none;
+    margin-left: 20px; /* Default for all */
 }
-
-.nav-links a:not(:first-child) {
-    margin-left: 20px;
+.nav-links a:first-child {
+    margin-left: 0; /* Override for the first child */
 }
 
 .nav-links a:hover {
-    color: #3aa8ff;
+    color: var(--blue);
 }
 
 .gray {
-    color: #777777;
+    color: var(--gray);
 }
 
 .m4 {
@@ -98,7 +98,7 @@ canvas {
     position: absolute;
     width: 5px;
     height: 5px;
-    background: #3aa8ff;
+    background: var(--blue);
     border-radius: 50%;
     opacity: 0.8;
     animation: twinkle 5s infinite;
